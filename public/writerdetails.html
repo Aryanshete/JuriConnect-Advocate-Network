@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            margin-top: 20px;
+        }
+
+        .icon-box.medium {
+            font-size: 20px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .icon-box {
+            font-size: 30px;
+            margin-bottom: 33px;
+            display: inline-block;
+            color: #ffffff;
+            height: 65px;
+            width: 65px;
+            line-height: 65px;
+            background-color: #59b73f;
+            text-align: center;
+            border-radius: 0.3rem;
+        }
+
+        .social-icon-style2 li a {
+            display: inline-block;
+            font-size: 14px;
+            text-align: center;
+            color: #ffffff;
+            background: #59b73f;
+            height: 41px;
+            line-height: 41px;
+            width: 41px;
+        }
+
+        .rounded-3 {
+            border-radius: 0.3rem !important;
+        }
+
+        .social-icon-style2 {
+            margin-bottom: 0;
+            display: inline-block;
+            padding-left: 10px;
+            list-style: none;
+        }
+
+        .social-icon-style2 li {
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        a,
+        a:active,
+        a:focus {
+            color: #616161;
+            text-decoration: none;
+            transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-duration: .2s;
+            -ms-transition-duration: .2s;
+            -moz-transition-duration: .2s;
+            -webkit-transition-duration: .2s;
+            -o-transition-duration: .2s;
+        }
+
+        .text-secondary,
+        .text-secondary-hover:hover {
+            color: #59b73f !important;
+        }
+
+        .display-25 {
+            font-size: 1.4rem;
+        }
+
+        .text-primary,
+        .text-primary-hover:hover {
+            color: #ff712a !important;
+        }
+
+        p {
+            margin: 0 0 20px;
+        }
+
+        .mb-1-6,
+        .my-1-6 {
+            margin-bottom: 1.6rem;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            background-color: #59b73f;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .form-container button:hover {
+            background-color: #4c903b;
+        }
+
+        .form-container select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" fill="#ced4da"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 15px;
+        }
+
+        /* Styling for the modals */
+        #reasonForm {
+            text-align: left;
+        }
+
+        #reasonModalLabel {
+            margin: 0;
+        }
+
+        #reasonModal .modal-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #reasonModal .modal-body label {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        #reasonModal .modal-body label input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        #reasonModal .modal-footer {
+            justify-content: flex-start;
+        }
+
+        #reasonModal .modal-footer button {
+            margin-right: 10px;
+        }
+
+        /* Styles for the comment section */
+        #commentsContainer {
+            max-height: 250px;
+            /* Set the fixed height for the comments section */
+            overflow-y: auto;
+            /* Add a vertical scrollbar when the comments exceed the height */
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            /* Add a background color for better visibility */
+        }
+
+        .comment {
+            margin-bottom: 10px;
+            padding: 8px;
+            /* Add padding to each comment for better spacing */
+            background-color: #fff;
+            /* Set a white background for each comment */
+            border: 1px solid #ccc;
+            /* Add a border around each comment */
+            border-radius: 5px;
+        }
+
+        #contactForm {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #contactForm label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #contactForm input,
+        #contactForm select,
+        #contactForm button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        #contactForm button {
+            background-color: #59b73f;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #contactForm button:hover {
+            background-color: #4c903b;
+        }
+
+        #contactForm select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z" fill="#ced4da"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+        integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+    <!--==========================
+    Header
+  ============================-->
+    <header id="header" style="height: 70px;">
+        <div class="container-fluid">
+
+            <div id="logo" class="pull-left">
+                <h1><a href="#intro" class="scrollto">Legal service </a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/lawsinindia.html">Laws in India</a></li>
+                    <li class="menu-has-children"><a href="">Our services</a>
+                        <ul>
+                            <li><a href="/lawyer.html">Advocates</a></li>
+                            <li><a href="#">Document Writers</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="menu-has-children"><a href="">More</a>
+                        <ul>
+                            <li id="loginInfo"><a href="loginn.html">User Login/Signup</a></li>
+                            <li><a href="feedback">Feedback</a></li>
+                            <li><a href="registration">Register as Lawyer</a></li>
+                            <li id="logoutInfo"></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <section style="margin-top: 90px;">
+        <div class="container">
+            <div class="row justify-content-center" id="lawyerDetails">
+
+            </div>
+            <hr>
+            <h4>Reviews: </h4>
+            <div id="commentsContainer" class="mb-5">
+                <!-- Comments will be displayed here -->
+            </div>
+            <div id="addCommentBtnContainer">
+            </div>
+            <!-- Comment Input Modal -->
+            <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form id="commentForm">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="commentModalLabel">Add Comment</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="commentName" class="form-label">Name:</label>
+                                    <input type="text" class="form-control" id="commentName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="commentText" class="form-label">Comment:</label>
+                                    <textarea class="form-control" id="commentText" rows="3" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="ratingText" class="form-label">Rating:</label><br />
+                                    <label>
+                                        <input type="radio" name="rating" value="1"> 1 <img
+                                            src="images/rating-star-full-icon-new.png" alt="">
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="rating" value="2"> 2 <img
+                                            src="images/rating-star-full-icon-new.png" alt="">
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="rating" value="3"> 3 <img
+                                            src="images/rating-star-full-icon-new.png" alt="">
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="rating" value="4"> 4 <img
+                                            src="images/rating-star-full-icon-new.png" alt="">
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="rating" value="5"> 5 <img
+                                            src="images/rating-star-full-icon-new.png" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <h4 id="contactFor">Contact section
+            </h4>
+            <form id="contactForm" style="margin-bottom: 70px;">
+                <!-- Add your form fields here (name, contact no., select a city) -->
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Name" required>
+                <label for="contactNo">Contact No. </label>
+                <input type="text" name="contactNo" placeholder="Contact No." maxlength="10" required>
+                <label for="email">Email (the confirmation email will be send to this email id)</label>
+                <input type="email" name="email" placeholder="Email" required>
+                <label for="city">Select city</label>
+                <select name="city" required>
+                    <option value="Select">Select</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Lucknow">Lucknow</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Surat">Surat</option>
+                    <option value="Kanpur">Kanpur</option>
+                    <option value="Nagpur">Nagpur</option>
+                    <option value="Visakhapatnam">Visakhapatnam</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Thane">Thane</option>
+                    <option value="Bhopal">Bhopal</option>
+                    <option value="Patna">Patna</option>
+                    <option value="Vadodara">Vadodara</option>
+                    <option value="Ghaziabad">Ghaziabad</option>
+                    <option value="Ludhiana">Ludhiana</option>
+                    <option value="Agra">Agra</option>
+                    <option value="Nashik">Nashik</option>
+                    <option value="Faridabad">Faridabad</option>
+                    <option value="Meerut">Meerut</option>
+                    <option value="Rajkot">Rajkot</option>
+                    <option value="Varanasi">Varanasi</option>
+                    <option value="Srinagar">Srinagar</option>
+                    <option value="Aurangabad">Aurangabad</option>
+                    <option value="Dhanbad">Dhanbad</option>
+                    <option value="Amritsar">Amritsar</option>
+                    <option value="Navi Mumbai">Navi Mumbai</option>
+                    <option value="Allahabad">Allahabad</option>
+                    <option value="Ranchi">Ranchi</option>
+                    <option value="Howrah">Howrah</option>
+                    <option value="Coimbatore">Coimbatore</option>
+                    <option value="Jabalpur">Jabalpur</option>
+                    <option value="Gwalior">Gwalior</option>
+                    <option value="Vijayawada">Vijayawada</option>
+                    <option value="Jodhpur">Jodhpur</option>
+                    <option value="Madurai">Madurai</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Kota">Kota</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Guwahati">Guwahati</option>
+                    <option value="Solapur">Solapur</option>
+                    <option value="Hubli–Dharwad">Hubli–Dharwad</option>
+                    <option value="Tiruchirappalli">Tiruchirappalli</option>
+                    <option value="Bareilly">Bareilly</option>
+                    <option value="Moradabad">Moradabad</option>
+                    <option value="Mysore">Mysore</option>
+                    <option value="Tiruppur">Tiruppur</option>
+                    <option value="Gurgaon">Gurgaon</option>
+                    <option value="Aligarh">Aligarh</option>
+                    <option value="Jalandhar">Jalandhar</option>
+                    <option value="Bhubaneswar">Bhubaneswar</option>
+                    <option value="Salem">Salem</option>
+                    <option value="Warangal">Warangal</option>
+                    <option value="Guntur">Guntur</option>
+                    <option value="Bhiwandi">Bhiwandi</option>
+                    <option value="Saharanpur">Saharanpur</option>
+                    <option value="Gorakhpur">Gorakhpur</option>
+                    <option value="Bikaner">Bikaner</option>
+                    <option value="Amravati">Amravati</option>
+                    <option value="Noida">Noida</option>
+                    <option value="Jamshedpur">Jamshedpur</option>
+                    <option value="Bhilai">Bhilai</option>
+                    <option value="Cuttack">Cuttack</option>
+                    <option value="Firozabad">Firozabad</option>
+                    <option value="Kochi">Kochi</option>
+                    <option value="Nellore">Nellore</option>
+                    <option value="Bhavnagar">Bhavnagar</option>
+                    <option value="Dehradun">Dehradun</option>
+                    <option value="Durgapur">Durgapur</option>
+                    <option value="Asansol">Asansol</option>
+                    <option value="Rourkela">Rourkela</option>
+                    <option value="Nanded">Nanded</option>
+                    <option value="Kolhapur">Kolhapur</option>
+                    <option value="Ajmer">Ajmer</option>
+                    <option value="Akola">Akola</option>
+                    <option value="Gulbarga">Gulbarga</option>
+                    <option value="Jamnagar">Jamnagar</option>
+                    <option value="Ujjain">Ujjain</option>
+                    <option value="Loni">Loni</option>
+                    <option value="Siliguri">Siliguri</option>
+                    <option value="Jhansi">Jhansi</option>
+                    <option value="Ulhasnagar">Ulhasnagar</option>
+                    <option value="Jammu">Jammu</option>
+                    <option value="Sangli-Miraj & Kupwad">Sangli-Miraj & Kupwad</option>
+                    <option value="Mangalore">Mangalore</option>
+                    <option value="Erode">Erode</option>
+                    <option value="Belgaum">Belgaum</option>
+                    <option value="Kurnool">Kurnool</option>
+                    <option value="Ambattur">Ambattur</option>
+                    <option value="Rajahmundry">Rajahmundry</option>
+                    <option value="Tirunelveli">Tirunelveli</option>
+                    <option value="Malegaon">Malegaon</option>
+                    <option value="Gaya">Gaya</option>
+                    <option value="Jalgaon">Jalgaon</option>
+                    <option value="Udaipur">Udaipur</option>
+                    <option value="Maheshtala">Maheshtala</option>
+                    <option value="Tirupati">Tirupati</option>
+                    <option value="Davanagere">Davanagere</option>
+                    <option value="Kozhikode">Kozhikode</option>
+                    <option value="Akbarpur">Akbarpur</option>
+                    <option value="Bokaro Steel City">Bokaro Steel City</option>
+                    <option value="Bellary">Bellary</option>
+                    <option value="Korba">Korba</option>
+                    <option value="Bhilwara">Bhilwara</option>
+                    <option value="Brahmapur">Brahmapur</option>
+                    <option value="Muzaffarpur">Muzaffarpur</option>
+                    <option value="Ahmednagar">Ahmednagar</option>
+                </select>
+                <input type="hidden" name="reason" id="selectedReason" value="">
+                <div id="addsubmitbuttoncontainer"></div>
+            </form>
+
+            <div class="modal fade" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <!-- Add your reason selection form fields here -->
+                        <form id="reasonForm">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="reasonModalLabel">Help advocate to understand you more:</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <label>
+                                    <input type="radio" name="reason" value="Divorse/Matrimonial issue">
+                                    Divorse/Matrimonial issue
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Property issue"> Property issue
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Family & Inhertiance Issue"> Family &
+                                    Inhertiance Issue
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Cheque/loan/recovery issue">
+                                    Cheque/loan/recovery issue
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Employment Issue"> Employment Issue
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Criminal Issue"> Criminal Issue
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Consumer court issue"> Consumer court issue
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Business / Corporate / Startup issue">
+                                    Business / Corporate /
+                                    Startup issue
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Civil Matter / Something Else"> Civil
+                                    Matter / Something Else
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Muslim Law Issue"> Muslim Law Issue
+                                </label>
+                                <label>
+                                    <input type="radio" name="reason" value="Immegration Issue"> Immegration Issue
+                                </label>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Modal -->
+            <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successModalLabel">Success</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Inquiry sent successfully. You will receive a confirmation mail from us with inquiry
+                            details.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--==========================
+    Footer
+  ============================-->
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6 footer-info">
+                            <h3>Legal Service</h3>
+                            <p>Our legal experts are dedicated to protecting your rights and interests. Trust us to
+                                navigate the
+                                complexities of the legal landscape for you.</p>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 footer-links">
+                            <h4>Useful Links</h4>
+                            <ul>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
+                                <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 footer-contact">
+                            <h4>Contact Us</h4>
+                            <p>
+                                D. Y. Patil College of Engineering <br>
+                                Akurdi<br>
+                                Pune <br>
+                                <strong>Phone:</strong> +91 9175909624<br>
+                                <strong>Email:</strong> Legalservice@gmail.com<br>
+                            </p>
+
+                            <div class="social-links">
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer><!-- #footer -->
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // Function to handle the main form submission
+                $("#contactForm").submit(function (event) {
+                    event.preventDefault();
+
+                    // Get form data and set the selected reason
+                    const formData = {
+                        name: $("input[name='name']").val(),
+                        contactNo: $("input[name='contactNo']").val(),
+                        email: $("input[name='email']").val(),
+                        city: $("select[name='city']").val(),
+
+                    };
+
+                    // Open the reason selection modal
+                    $("#reasonModal").modal("show");
+                });
+
+                // Function to handle the reason selection form submission
+                $("#reasonForm").submit(function (event) {
+                    event.preventDefault();
+                    // Extract form data
+                    const name = $("#contactForm input[name='name']").val();
+                    const email = $("#contactForm input[name='email']").val();
+                    const contactNo = $("#contactForm input[name='contactNo']").val();
+                    const city = $("#contactForm select[name='city']").val();
+                    const reason = $("input[name='reason']:checked").val();
+                    let params = (new URL(document.location)).searchParams;
+
+                    $.ajax({
+                        url: "http://localhost:3000/submit-inquiry",
+                        type: "POST",
+                        data: {
+                            'name': name,
+                            'email': email,
+                            'contactNo': contactNo,
+                            'city': city,
+                            'reason': reason,
+                            'writerId': params.get("writerId")
+                        },
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
+
+
+
+                    // Close the reason selection modal
+                    $("#reasonModal").modal("hide");
+
+                    // Clear the form fields
+                    $("#contactForm")[0].reset();
+
+                    // Show success pop-up
+                    $("#successModal").modal("show");
+
+                    // Refresh the page after a short delay
+                    setTimeout(function () {
+                        location.href = location.href;
+                    }, 1500);
+                    // Adjust the delay as needed
+                });
+
+                // Function to display comments in the comments section
+                function displayComments(comments) {
+                    const commentsContainer = $("#commentsContainer");
+                    commentsContainer.empty();
+
+                    let sum = 0
+                    comments.forEach(comment => {
+                        sum = sum + Number(comment.rating);
+                        commentsContainer.append(`<div class="comment">${comment.name}: ${comment.comment} <br />Rating: ${comment.rating} <img src="images/rating-star-full-icon-new.png" alt=""></div>`);
+                    });
+                    if (comments.length == 0) {
+                        commentsContainer.append("<span>No Reviews Yet!</span>");
+                    }
+
+                    const ratingContainer = $("#ratingContainer");
+                    ratingContainer.empty();
+                    //Calculate avarage ratings
+                    let avg = sum / (comments.length);
+                    const star = avg.toString().split(".");
+                    for (let i = 0; i < Number(star[0]); i++) {
+                        ratingContainer.append(`<img src="images/rating-star-full-icon-new.png" alt="Star">`);
+                    }
+                    if (star[1]) {
+                        ratingContainer.append(`<img src="images/rating-star-half-icon-new.png" alt="Star">`);
+                    }
+                    if (avg)
+                        ratingContainer.append(`<span>${avg.toFixed(2)}</span >`);
+                    else
+                        ratingContainer.append(`<span>No ratings yet</span >`);
+                }
+
+
+                function getComments() {
+                    let params = (new URL(document.location)).searchParams;
+                    let writerId = params.get("writerId");
+
+                    $.ajax({
+                        url: `http://localhost:3000/get-ratings?writerId=${writerId}`,
+                        type: "GET",
+                        success: function (comments) {
+                            displayComments(comments);
+                        }
+                    });
+                }
+
+                $(".close").click(function () {
+                    $('#commentModal').modal('hide');
+                    $('#reasonModal').modal('hide');
+                    $('#successModal').modal('hide');
+                });
+
+                $(document).ready(function () {
+                    // Function to handle the add comment button click
+                    $("#addCommentBtn").click(function () {
+                        // Open the comment input modal
+                        $("#commentModal").modal("show");
+                    });
+
+                    // Function to handle the comment submission
+                    $("#commentForm").submit(function (event) {
+                        event.preventDefault();
+
+                        // Get the typed name and comment
+                        const name = $("#commentName").val();
+                        const text = $("#commentText").val();
+                        const rating = $("input[name='rating']:checked").val();
+
+                        // Close the comment input modal
+                        $("#commentModal").modal("hide");
+
+                        // Clear the comment input fields
+                        $("#commentName").val('');
+                        $("#commentText").val('');
+                        //ss$("input[name='rating']:checked").val(null);
+                        $('input[type="radio"]').prop('checked', false)
+
+
+
+                        let params = (new URL(document.location)).searchParams;
+                        let writerId = params.get("writerId");
+                        console.log(writerId)
+                        $.ajax({
+                            url: "http://localhost:3000/add-ratings",
+                            type: "POST",
+                            data: {
+                                'name': name,
+                                'comment': text,
+                                'rating': rating,
+                                'writerId': writerId,
+                            },
+                            success: function (data) {
+                                console.log(data)
+                                $("#commentForm")[0].reset();
+                                //get comments from backend
+                                getComments();
+                            }
+                        });
+                    });
+
+                });
+
+
+                function getLawyerDetails() {
+                    let params = (new URL(document.location)).searchParams;
+                    let writerId = params.get("writerId");
+
+                    $.ajax({
+                        url: "http://localhost:3000/get-documentwriter?writerId=" + writerId,
+                        type: "GET",
+                        success: function (writer) {
+                            console.log(writer)
+                            //get comments from backend
+                            const writerDetails = $("#writerDetails");
+                            writerDetails.empty();
+                            let document = writer.documents
+                                .split('')
+                                .map(char => (char === ' ' ? '%20' : char))
+                                .join('');
+                            lawyerDetails.append(`<div class="col-md-7 col-lg-4 mb-5 mb-lg-0 wow fadeIn">
+              <div class="card border-0 shadow">
+                <img src=${writer.image} alt="...">
+                <div class="card-body p-1-9 p-xl-5">
+                  <div class="mb-4">
+                    <h3 class="h4 mb-0">${writer.name}</h3>
+                    <span class="text-primary">Advocate</span>
+                  </div>
+                  <ul class="list-unstyled mb-4">
+                    <li class="mb-3" id="ratingContainer">
+                    </li>
+                    <li class="mb-3"><a href="#!"><i
+                          class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>7721****28</a></li>
+                    <li><a href="#!"><i class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>${writer.address}</a></li>
+                  </ul>
+                  <a href=${document} target="_blank"><input type="button" value="View Legal Documentation"></a>
+                  <a href="#contactFor"><input type="button" value="View Contact number"></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="ps-lg-1-6 ps-xl-5">
+                <div class="mb-5 wow fadeIn">
+                  <div class="text-start mb-1-6 wow fadeIn">
+                    <h2 class="h1 mb-0 text-primary">About ${writer.name}</h2>
+                  </div>
+                  <p>${writer.about}</p>
+                </div>
+                <div class="mb-5 wow fadeIn">
+                  <div class="text-start mb-1-6 wow fadeIn">
+                    <h2 class="mb-0 text-primary">Details</h2>
+                  </div>
+                  <div class="row mt-n4">
+                    <div class="col-sm-6 col-xl-4 mt-4">
+                      <div class="card text-center border-0 rounded-3">
+                        <div class="card-body">
+                          <i class="ti-medall-alt icon-box medium rounded-3 mb-4"></i>
+                          <h3 class="h5 mb-3">Experience</h3>
+                          <p class="mb-0">About ${writer.experienceInYears} years</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4 mt-4">
+                      <div class="card text-center border-0 rounded-3">
+                        <div class="card-body">
+                          <i class="ti-pencil-alt icon-box medium rounded-3 mb-4"></i>
+                          <h3 class="h5 mb-3">Languages</h3>
+                          <p class="mb-0">${writer.languages}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="wow fadeIn">
+                  <div class="text-start mb-1-6 wow fadeIn">
+                    <h2 class="mb-0 text-primary">Expertise</h2>
+                  </div>
+                  <p class="mb-4">${writer.fieldOfExpertise}</p>
+                </div>
+              </div>
+            </div>`)
+                            getComments();
+                        }
+                    });
+                }
+
+                getLawyerDetails();
+
+                const userLoginDetails = localStorage.getItem("user");
+                const addCommentBtnContainer = $("#addCommentBtnContainer");
+                const addsubmitbuttoncontainer = $("#addsubmitbuttoncontainer")
+                if (userLoginDetails) {
+                    addCommentBtnContainer.append(`<button id="addCommentBtn" type="button" class="btn btn-primary">Add a review</button>`);
+                    addsubmitbuttoncontainer.append(`<button id="addsubmitbtn" type="submit">Submit</button>`);
+                }
+                if (!userLoginDetails) {
+                    addsubmitbuttoncontainer.append(`<h4 style="font-size: smaller;">*you need to login first to fill and submit the contact form. </h4>
+          <h4 style="font-size: smaller;">Go to <a href="loginn.html" style="color: blue;">Login</a> </h4>`);
+                    addCommentBtnContainer.append(`<h4 style="font-size: smaller;">*you need to login first to add a review. </h4>
+          <h4 style="font-size: smaller;">Go to <a href="loginn.html" style="color: blue;">Login</a> </h4>`);
+                }
+
+            });
+
+        </script>
+        <script>
+            $(document).ready(function () {
+                let userInfo = JSON.parse(localStorage.getItem("user"));
+                if (userInfo) {
+                    const loginInfo = $("#loginInfo");
+                    const logoutInfo = $("#logoutInfo");
+                    loginInfo.empty();
+                    loginInfo.append(`<a href="">Hello ${userInfo.username}`);
+                    logoutInfo.append(`<a href="#" id="logoutButton">Logout</a>`);
+                }
+
+                $("#logoutInfo").click(function () {
+                    localStorage.clear();
+                    window.location.reload();
+                });
+            });
+        </script>
+    </section>
+</body>
+
+</html>

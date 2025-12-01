@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        ::selection {
+            background: white;
+            color: black;
+        }
+
+        html,
+        body {
+            height: 100%;
+            place-items: center;
+        }
+
+        .containerr {
+            max-width: 1100px;
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .containerr .box {
+            width: calc(33% - 25px);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 30px;
+            border-radius: 5px;
+            border: 4px solid #18d26e;
+            margin-bottom: 10px;
+            margin-right: 25px;
+            max-height: 550px;
+            /* Set a maximum height for the card */
+            overflow: hidden;
+        }
+
+        .box .quote i {
+            margin-top: 10px;
+            font-size: 45px;
+            color: #17c0eb;
+        }
+
+        .containerr .box .image {
+            margin: 10px 0;
+            height: 150px;
+            width: 150px;
+            background: white;
+            padding: 3px;
+            border-radius: 50%;
+            border: 2px solid black;
+        }
+
+        .box .image img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid black;
+        }
+
+        .box p {
+            text-align: justify;
+            margin-top: 5px;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 9px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* Limit the number of lines displayed */
+            -webkit-box-orient: vertical;
+        }
+
+        .box .name_job {
+            margin: 10px 0 3px 0;
+            color: #8e44ad;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .rating i {
+            font-size: 18px;
+            color: #8e44ad;
+            margin-bottom: 5px;
+        }
+
+        .btns {
+            margin-top: 20px;
+            margin-bottom: 5px;
+
+
+            width: 100%;
+        }
+
+        .btns button {
+            background: #8e44ad;
+            width: 100%;
+            padding: 9px 0px;
+            outline: none;
+            border: 2px solid #8e44ad;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 400;
+            color: #8e44ad;
+            transition: all 0.3s linear;
+        }
+
+        .btns button:first-child {
+            background: none;
+            margin-right: 5px;
+        }
+
+        .btns button:last-child {
+
+            color: #18d26e;
+            margin-left: 5px;
+        }
+
+        .btns button:first-child:hover {
+            background: #18d26e;
+            color: #fff;
+        }
+
+        .btns button:hover {
+            color: #18d26e;
+        }
+
+        #main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+
+        @media (max-width:1045px) {
+            .containerr .box {
+                width: calc(50% - 10px);
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width:710px) {
+            .containerr .box {
+                width: 100%;
+            }
+        }
+
+        .containerr .box:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .containerr .box {
+            /* Existing styles remain unchanged */
+
+            /* Updated border style */
+            border: 4px solid #18d26e;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Add a 
+    tle border transition on hover */
+        .containerr .box:hover {
+            border-color: #8e44ad;
+            /* Change border color on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-container">
+        <!--==========================
+    Header
+  ============================-->
+        <header id="header" style="height: 70px;">
+            <div class="container-fluid">
+
+                <div id="logo" class="pull-left">
+                    <h1><a href="#intro" class="scrollto">Legal service </a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+                </div>
+
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/lawsinindia.html">Laws in India</a></li>
+                        <li class="menu-has-children"><a href="">Our services</a>
+                            <ul>
+                                <li><a href="/lawyer.html">Advocates</a></li>
+                                <li><a href="/documentwriter.html">Document Writers</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-has-children"><a href="">Register As</a>
+                            <ul>
+                                <li><a href="registration">Register as Advocate</a></li>
+                                <li><a href="registerasdocumentwriter">Register as Document writer</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-has-children"><a href="">More</a>
+                            <ul>
+                                <li id="loginInfo"><a href="loginn.html">User Login/Signup</a></li>
+                                <li><a href="feedback">Feedback</a></li>
+                                <li id="logoutInfo"></li>
+                            </ul>
+                        </li>
+                </nav><!-- #nav-menu-container -->
+            </div>
+        </header><!-- #header -->
+
+        <section style="margin-top: 90px;">
+            <!-- sorting section goes here  -->
+            <div style="margin-top: 20px;">
+                <label for="filterLocation">Location:</label>
+                <select id="filterLocation">
+                    <option value="All">All</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Lucknow">Lucknow</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Surat">Surat</option>
+                    <option value="Kanpur">Kanpur</option>
+                    <option value="Nagpur">Nagpur</option>
+                    <option value="Visakhapatnam">Visakhapatnam</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Thane">Thane</option>
+                    <option value="Bhopal">Bhopal</option>
+                    <option value="Patna">Patna</option>
+                    <option value="Vadodara">Vadodara</option>
+                    <option value="Ghaziabad">Ghaziabad</option>
+                    <option value="Ludhiana">Ludhiana</option>
+                    <option value="Agra">Agra</option>
+                    <option value="Nashik">Nashik</option>
+                    <option value="Faridabad">Faridabad</option>
+                    <option value="Meerut">Meerut</option>
+                    <option value="Rajkot">Rajkot</option>
+                    <option value="Varanasi">Varanasi</option>
+                    <option value="Srinagar">Srinagar</option>
+                    <option value="Aurangabad">Aurangabad</option>
+                    <option value="Dhanbad">Dhanbad</option>
+                    <option value="Amritsar">Amritsar</option>
+                    <option value="Navi Mumbai">Navi Mumbai</option>
+                    <option value="Allahabad">Allahabad</option>
+                    <option value="Ranchi">Ranchi</option>
+                    <option value="Howrah">Howrah</option>
+                    <option value="Coimbatore">Coimbatore</option>
+                    <option value="Jabalpur">Jabalpur</option>
+                    <option value="Gwalior">Gwalior</option>
+                    <option value="Vijayawada">Vijayawada</option>
+                    <option value="Jodhpur">Jodhpur</option>
+                    <option value="Madurai">Madurai</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Kota">Kota</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Guwahati">Guwahati</option>
+                    <option value="Solapur">Solapur</option>
+                    <option value="Hubli–Dharwad">Hubli–Dharwad</option>
+                    <option value="Tiruchirappalli">Tiruchirappalli</option>
+                    <option value="Bareilly">Bareilly</option>
+                    <option value="Moradabad">Moradabad</option>
+                    <option value="Mysore">Mysore</option>
+                    <option value="Tiruppur">Tiruppur</option>
+                    <option value="Gurgaon">Gurgaon</option>
+                    <option value="Aligarh">Aligarh</option>
+                    <option value="Jalandhar">Jalandhar</option>
+                    <option value="Bhubaneswar">Bhubaneswar</option>
+                    <option value="Salem">Salem</option>
+                    <option value="Warangal">Warangal</option>
+                    <option value="Guntur">Guntur</option>
+                    <option value="Bhiwandi">Bhiwandi</option>
+                    <option value="Saharanpur">Saharanpur</option>
+                    <option value="Gorakhpur">Gorakhpur</option>
+                    <option value="Bikaner">Bikaner</option>
+                    <option value="Amravati">Amravati</option>
+                    <option value="Noida">Noida</option>
+                    <option value="Jamshedpur">Jamshedpur</option>
+                    <option value="Bhilai">Bhilai</option>
+                    <option value="Cuttack">Cuttack</option>
+                    <option value="Firozabad">Firozabad</option>
+                    <option value="Kochi">Kochi</option>
+                    <option value="Nellore">Nellore</option>
+                    <option value="Bhavnagar">Bhavnagar</option>
+                    <option value="Dehradun">Dehradun</option>
+                    <option value="Durgapur">Durgapur</option>
+                    <option value="Asansol">Asansol</option>
+                    <option value="Rourkela">Rourkela</option>
+                    <option value="Nanded">Nanded</option>
+                    <option value="Kolhapur">Kolhapur</option>
+                    <option value="Ajmer">Ajmer</option>
+                    <option value="Akola">Akola</option>
+                    <option value="Gulbarga">Gulbarga</option>
+                    <option value="Jamnagar">Jamnagar</option>
+                    <option value="Ujjain">Ujjain</option>
+                    <option value="Loni">Loni</option>
+                    <option value="Siliguri">Siliguri</option>
+                    <option value="Jhansi">Jhansi</option>
+                    <option value="Ulhasnagar">Ulhasnagar</option>
+                    <option value="Jammu">Jammu</option>
+                    <option value="Sangli-Miraj & Kupwad">Sangli-Miraj & Kupwad</option>
+                    <option value="Mangalore">Mangalore</option>
+                    <option value="Erode">Erode</option>
+                    <option value="Belgaum">Belgaum</option>
+                    <option value="Kurnool">Kurnool</option>
+                    <option value="Ambattur">Ambattur</option>
+                    <option value="Rajahmundry">Rajahmundry</option>
+                    <option value="Tirunelveli">Tirunelveli</option>
+                    <option value="Malegaon">Malegaon</option>
+                    <option value="Gaya">Gaya</option>
+                    <option value="Jalgaon">Jalgaon</option>
+                    <option value="Udaipur">Udaipur</option>
+                    <option value="Maheshtala">Maheshtala</option>
+                    <option value="Tirupati">Tirupati</option>
+                    <option value="Davanagere">Davanagere</option>
+                    <option value="Kozhikode">Kozhikode</option>
+                    <option value="Akbarpur">Akbarpur</option>
+                    <option value="Bokaro Steel City">Bokaro Steel City</option>
+                    <option value="Bellary">Bellary</option>
+                    <option value="Korba">Korba</option>
+                    <option value="Bhilwara">Bhilwara</option>
+                    <option value="Brahmapur">Brahmapur</option>
+                    <option value="Muzaffarpur">Muzaffarpur</option>
+                    <option value="Ahmednagar">Ahmednagar</option>
+                </select>
+
+                <label for="filterRating">Rating:</label>
+                <select id="filterRating">
+                    <option value="All">All</option>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+
+                <label for="filterPracticeArea">Practice Area:</label>
+                <select id="filterPracticeArea">
+                    <option value="All">All</option>
+                    <option value="Anticipatory Bail">Anticipatory Bail</option>
+                    <option value="Arbitration">Arbitration</option>
+                    <option value="Armed Forces Tribunal">Armed Forces Tribunal</option>
+                    <option value="Banking/Finance">Banking/Finance</option>
+                    <option value="Bankruptcy/Insolvency">Bankruptcy/Insolvency</option>
+                    <option value="Breach of Contract">Breach of Contract</option>
+                    <option value="Cheque Bounce">Cheque Bounce</option>
+                    <option value="Child Custody">Child Custody</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Consumer Court">Consumer Court</option>
+                    <option value="Corporate">Corporate</option>
+                    <option value="Court Marriage">Court Marriage</option>
+                    <option value="Criminal">Criminal</option>
+                    <option value="Customs & Central Excise">Customs & Central Excise</option>
+                </select>
+
+                <label for="filterExperience">Experience:</label>
+                <select id="filterExperience">
+                    <option value="All">All</option>
+                    <option value="Above10">Above 10 years</option>
+                    <option value="5to10">5-10 years</option>
+                    <option value="2"> 2 years</option>
+                </select>
+            </div>
+            <div class="containerr" id="lawyerListContainer">
+
+            </div>
+        </section>
+
+    </div>
+    <!--==========================
+    Footer
+  ============================-->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 footer-info">
+                        <h3>Legal Service</h3>
+                        <p>Our legal experts are dedicated to protecting your rights and interests. Trust us to navigate
+                            the
+                            complexities of the legal landscape for you.</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            D. Y. Patil College of Engineering <br>
+                            Akurdi<br>
+                            Pune <br>
+                            <strong>Phone:</strong> +91 9175909624<br>
+                            <strong>Email:</strong> Legalservice@gmail.com<br>
+                        </p>
+
+                        <div class="social-links">
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </footer><!-- #footer -->
+
+    <!-- Add this script for filtering -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Function to refresh and apply filtering
+            function refreshCards() {
+                // Get selected filter values
+                let selectedLocation = $('#filterLocation').val();
+                let selectedRating = $('#filterRating').val();
+                let selectedPracticeArea = $('#filterPracticeArea').val();
+                let selectedExperience = $('#filterExperience').val();
+
+                // Show all cards initially
+                $('.containerr .box').show();
+
+                // Filter by location
+                if (selectedLocation !== 'All') {
+                    $('.containerr .box').filter(function () {
+                        return $(this).find('p:contains("Location")').text().indexOf(selectedLocation) === -1;
+                    }).hide();
+                }
+
+                // Filter by rating
+                if (selectedRating !== 'All') {
+                    $('.containerr .box').filter(function () {
+                        return $(this).find('.rating img').length !== parseInt(selectedRating);
+                    }).hide();
+                }
+
+                // Filter by practice area
+                if (selectedPracticeArea !== 'All') {
+                    $('.containerr .box').filter(function () {
+                        return $(this).find('p:contains("Practice area")').text().indexOf(selectedPracticeArea) === -1;
+                    }).hide();
+                }
+
+                // Filter by experience
+                if (selectedExperience !== 'All') {
+                    $('.containerr .box').filter(function () {
+                        let experienceText = $(this).find('p:contains("Experience")').text().split(':')[1].trim();
+                        let experienceYears = parseInt(experienceText);
+
+                        if (selectedExperience === 'Above10') {
+                            return experienceYears <= 10;
+                        } else if (selectedExperience === '5to10') {
+                            return experienceYears < 5 || experienceYears > 10;
+                        } else if (selectedExperience === '2') {
+                            return experienceYears = 2;
+                        }
+                    }).hide();
+                }
+            }
+            // Event listeners for filter criteria
+            $('#filterLocation, #filterRating, #filterPracticeArea, #filterExperience').change(function () {
+                refreshCards();
+            });
+
+            // Fetch user status from the server
+            let userInfo = JSON.parse(localStorage.getItem("user"));
+            if (userInfo) {
+                const loginInfo = $("#loginInfo");
+                const logoutInfo = $("#logoutInfo");
+                loginInfo.empty();
+                loginInfo.append(`<a href="">Hello ${userInfo.username}`);
+                logoutInfo.append(`<a href="#" id="logoutButton">Logout</a>`);
+            }
+
+            $("#logoutInfo").click(function () {
+                localStorage.clear();
+                window.location.reload();
+            });
+
+
+            //fetch Lawyers
+            $.ajax({
+                url: "http://localhost:3000/get-documentwriters",
+                type: "GET",
+                success: function (data) {
+                    console.log(data);
+
+                    data.forEach(writer => {
+                        console.log(writer.avgRating)
+                        const star = writer.avgRating.toString().split(".");
+                        console.log(star[0])
+                        const imagePath = "http://localhost:3000/" + writer.image;
+                        console.log(imagePath);
+                        const commentsContainer = $("#lawyerListContainer");
+                        commentsContainer.append(`<div class="box">
+              <div class="image">
+                <img src=${imagePath} alt="">
+              </div>
+              <div class="name_job">${writer.name}</div>
+              <div class="rating">
+                ${star[0] == 0 ? `<span>No ratings yet</span >` : ""}
+                ${star[0] && Number(star[0]) >= 1 ? `<img src="images/rating-star-full-icon-new.png" alt="Star">` : ""}
+                ${star[0] && Number(star[0]) >= 2 ? `<img src="images/rating-star-full-icon-new.png" alt="Star">` : ""}
+                ${star[0] && Number(star[0]) >= 3 ? `<img src="images/rating-star-full-icon-new.png" alt="Star">` : ""}
+                ${star[0] && Number(star[0]) >= 4 ? `<img src="images/rating-star-full-icon-new.png" alt="Star">` : ""}
+                ${star[0] && Number(star[0]) >= 5 ? `<img src="images/rating-star-full-icon-new.png" alt="Star">` : ""}
+                ${star[1] && star[1] ? `<img src="images/rating-star-half-icon-new.png" alt="Star">` : ""}
+              </div>
+              <p><i class="fas fa-map-marker" aria-hidden="true"></i> Location:
+                ${writer.address}</p>
+              <p><i class="fas fa-briefcase" aria-hidden="true"> </i> Experience: ${writer.experienceInYears} years</p>
+              <p><i class="fas fa-balance-scale" aria-hidden="true"></i> Practice area: ${writer.fieldOfExpertise}</p>
+              <div class="btns">
+                <a href="/lawyerDetails?lawyerId=${writer._id}"><button>Contact</button></a>
+              </div>
+            </div>`);
+                    });
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
