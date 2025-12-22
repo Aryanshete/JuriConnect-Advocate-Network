@@ -407,7 +407,8 @@ app.post('/user-register', async (req, res) => {
         await new User({ username, contact, email, password, verificationToken }).save();
 
         const transporter = getTransporter();
-        const verificationLink = `http://localhost:3000/verify-email?token=${verificationToken}`;
+const verificationLink =
+  `${process.env.APP_BASE_URL}/verify-email?token=${verificationToken}`;
 
         const mailOptions = {
             from: "aryanshete009@gmail.com",

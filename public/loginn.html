@@ -538,14 +538,31 @@
             'password': password,
           },
           success: function (data) {
-            window.location.reload();
-            console.log(data);
+            Swal.fire({
+              icon: "success",
+              title: "Registration Successful",
+              text: "Please check your email to verify your account.",
+              confirmButtonColor: "#18d26e"
+            }).then(() => {
+              window.location.reload();
+            });
           },
+
           error: function (xhr, textStatus, errorThrown) {
             if (xhr.status === 400 && xhr.responseText.includes("Email already exists")) {
-              alert("Email already exists. You may try Sign in.");
+            Swal.fire({
+              icon: "error",
+              title: "Email Already Exists",
+              text: "You may try signing in instead.",
+              confirmButtonColor: "#e74c3c"
+            });
             } else if (xhr.status === 400 && xhr.responseText.includes("Username already exists")) {
-              alert("Username already exists. Please choose a different username.");
+              Swal.fire({
+                icon: "error",
+                title: "Username Already Exists",
+                text: "Please choose a different username.",
+                confirmButtonColor: "#e74c3c"
+              });
             } else {
               console.error("Error:", textStatus, errorThrown);
             }
@@ -566,14 +583,28 @@
             'username': username,
             'password': password,
           },
-          success: function (data) {
-            localStorage.setItem('user', JSON.stringify(data));
-            window.location.href = "/";
-          },
+            success: function (data) {
+              Swal.fire({
+                icon: "success",
+                title: "Login Successful",
+                text: "Welcome back!",
+                timer: 1500,
+                showConfirmButton: false
+              }).then(() => {
+                localStorage.setItem('user', JSON.stringify(data));
+                window.location.href = "/";
+              });
+            },
+
           error: function (xhr, textStatus, errorThrown) {
             if (xhr.status == 401) {
               if (xhr.responseText.includes("verify your email")) {
-                alert("Please verify your email before logging in.");
+              Swal.fire({
+                icon: "warning",
+                title: "Email Not Verified",
+                text: "Please verify your email before logging in.",
+                confirmButtonColor: "#f39c12"
+              });
               }
               else if (xhr.responseText.includes("Username is incorrect")) {
                 alert("Invalid username or password.");
@@ -582,7 +613,12 @@
                 alert("Invalid username or password.");
               }
               else {
-                alert("Wrong username or password. Please try again.");
+              Swal.fire({
+                icon: "error",
+                title: "Login Failed",
+                text: "Wrong username or password. Please try again.",
+                confirmButtonColor: "#e74c3c"
+              });
               }
             } else {
               console.error("Error:", textStatus, errorThrown);
@@ -593,6 +629,7 @@
     });
 
   </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 
