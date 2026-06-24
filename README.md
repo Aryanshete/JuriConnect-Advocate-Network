@@ -198,10 +198,3 @@ If you found this project useful:
 🍴 Fork the project  
 📢 Share with others  
 
----
-
-<div align="center">
-
-### Built with ❤️ using Node.js, Express & MongoDB
-
-</div>
